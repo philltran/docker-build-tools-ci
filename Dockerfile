@@ -9,6 +9,12 @@ ADD . /build-tools-ci
 
 # Collect the components we need for this image
 RUN apt-get update
+RUN apt install apt-transport-https
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+RUN curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
+RUN apt install yarn
+RUN npm install -g grunt-cli
 RUN composer -n global require -n "hirak/prestissimo:^0.3"
 RUN mkdir -p /usr/local/share/terminus
 RUN /usr/bin/env COMPOSER_BIN_DIR=/usr/local/bin composer -n --working-dir=/usr/local/share/terminus require pantheon-systems/terminus "^1.7.1"
