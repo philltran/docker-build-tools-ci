@@ -26,7 +26,7 @@ RUN chmod +x /usr/local/bin/drush
 env TERMINUS_PLUGINS_DIR /usr/local/share/terminus-plugins
 RUN mkdir -p /usr/local/share/terminus-plugins
 RUN cd /usr/local/share/terminus-plugins
-RUN git clone https://github.com/NickWilde1990/terminus-build-tools-plugin.git -b improved-bitbucket-support /usr/local/share/terminus-plugins/terminus-build-tools-plugin
+RUN git clone https://github.com/philltran/terminus-build-tools-plugin.git /usr/local/share/terminus-plugins/terminus-build-tools-plugin
 RUN composer -n create-project -d /usr/local/share/terminus-plugins pantheon-systems/terminus-secrets-plugin:^1
 RUN composer -n create-project -d /usr/local/share/terminus-plugins pantheon-systems/terminus-rsync-plugin:^1
 RUN composer -n create-project -d /usr/local/share/terminus-plugins pantheon-systems/terminus-quicksilver-plugin:^1
